@@ -1,0 +1,14 @@
+Задание 2:
+1 запрос:
+SELECT Blogs.id_user as u, count(*) as c from Blogs b,Post_categories pc
+where b.id_blog = pc.id_blog
+group by u
+order by c
+Limit 10
+
+2 запрос:
+
+SELECT id_category from categories c 
+where EXISTS (SELECT * from Blogs b,Post_categories pc
+where b.id_blog = pc.id_blog and c.id_category = pc.category
+and b.id_user = A and p.id_user <> Б )
